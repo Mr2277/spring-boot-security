@@ -10,6 +10,9 @@ import org.springframework.security.web.access.intercept.FilterInvocationSecurit
 import javax.servlet.*;
 import java.io.IOException;
 
+/**
+ * 抽象资源拦截器
+ */
 public class CustomFilterSecurityInterceptor extends AbstractSecurityInterceptor implements Filter {
     private static final Logger logger = Logger.getLogger(CustomFilterSecurityInterceptor.class);
     private FilterInvocationSecurityMetadataSource securityMetadataSource;
@@ -20,7 +23,9 @@ public class CustomFilterSecurityInterceptor extends AbstractSecurityInterceptor
         logger.debug("===="+fi.getRequestUrl());
         invoke(fi);
     }
-
+    //fi里面有一个被拦截的url
+   //里面调用MyInvocationSecurityMetadataSource的getAttributes(Object object)这个方法获取fi对应的所有权限
+   //再调用MyAccessDecisionManager的decide方法来校验用户的权限是否足够
     public void invoke(FilterInvocation fi) throws IOException, ServletException {
         InterceptorStatusToken token = super.beforeInvocation(fi);
         try {
