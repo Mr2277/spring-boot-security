@@ -88,7 +88,7 @@ function tologin(){
 }
 
 function checkcode(vilidcode){
-    $.get("/checkcode?t="+new Date().getTime(),{checkCode:vilidcode},function(data) {
+    $.get("/checkcode?t="+new Date().getTime(), {checkCode:vilidcode},function(data) {
        if(data != 1){
            alert(data);
        }else{
