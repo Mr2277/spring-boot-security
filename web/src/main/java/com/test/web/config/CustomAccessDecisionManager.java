@@ -32,6 +32,7 @@ public class CustomAccessDecisionManager implements AccessDecisionManager {
             ConfigAttribute configAttribute = iterator.next();
             //need role
             String needRole = configAttribute.getAttribute();
+            logger.info(needRole);
             //user roles
             for (GrantedAuthority ga : authentication.getAuthorities()) {
                 if (needRole.equals(ga.getAuthority())) {

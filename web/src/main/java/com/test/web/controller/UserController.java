@@ -53,6 +53,7 @@ public class UserController {
         }
 
         boolean newrole=false,editrole=false,deleterole=false;
+        System.out.println(urlroles);
         if(!StringUtils.isEmpty(urlroles)) {
             String[] resouces = urlroles.split(";");
             for (String resource : resouces) {
@@ -91,7 +92,6 @@ public class UserController {
         model.addAttribute("newrole", newrole);
         model.addAttribute("editrole", editrole);
         model.addAttribute("deleterole", deleterole);
-
         model.addAttribute("user", user);
         return "user/index";
     }
