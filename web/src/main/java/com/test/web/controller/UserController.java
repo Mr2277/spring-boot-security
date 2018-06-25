@@ -47,8 +47,10 @@ public class UserController {
     @RequestMapping("/index")
     public String index(ModelMap model, Principal user) throws Exception{
         Authentication authentication = (Authentication)user;
+
         List<String> userroles = new ArrayList<>();
         for(GrantedAuthority ga : authentication.getAuthorities()){
+            logger.info(ga.getAuthority());
             userroles.add(ga.getAuthority());
         }
 
