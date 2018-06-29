@@ -52,7 +52,6 @@ public class LoginController {
             request.setAttribute("errorMsg", "验证码已失效，请重新输入！");
             return "验证码已失效，请重新输入！";
         }
-
         String captcha = cko.toString();
         Date now = new Date();
         Long codeTime = Long.valueOf(session.getAttribute("codeTime")+"");
